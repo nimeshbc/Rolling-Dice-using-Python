@@ -1,0 +1,55 @@
+import random
+    import sys
+    cond = True
+    cond1 = True
+    cond2 = True
+    inp = ""
+    n = 0
+    a = 0
+    b = 0
+
+    print("Welcome to the rolling dice game")
+    while(cond == True):
+        while (cond1 == True):
+            num = int(input("\nEnter a number between 1 and 6"))
+            if (num > 6):
+                print("\nInvalid input")
+                cond1 = True
+                a += 1
+                if (a>=5):
+                    print("\nInvalid input attempts exceeded limit.....\nTry again later...!!!")
+                    sys.exit()
+            else:
+                cond1 = False
+        ran = random.randint(1, 6)
+        n += 1
+        if (num == ran):
+            n = str(n)
+            print("\nHooray....!!! You won")
+            print("\nYou won in" + n + "attempts")
+            n = int(n)
+            n = 0
+            print("\nThe random number is ", ran)
+            while (cond2 == True):
+                inp = input("\nDo you want to play another game(yes/no): ")
+                inp = inp.lower()
+                if (inp == "yes"):
+                    cond = True
+                    cond2 = False
+                elif (inp == "no"):
+                    cond = False
+                    cond2 = False
+                else:
+                    print("\nInvalid Input")
+                    b += 1
+                    if (b >= 5):
+                        print("\n Invalid inputs attempts reached the critical value")
+                        print("\nBye bye.... See you soon")
+                        sys.exit()
+        elif(num!=ran):
+            print("\nThe random number is ", ran)
+            print("\nYour guess is wrong \nTRY AGAIN....!!!!!")
+        cond1 = True
+        a = 0
+
+    print("\nBye bye.... See you soon")
